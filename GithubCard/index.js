@@ -50,6 +50,149 @@
 
     Using that array, iterate over it, requesting data for each user, creating a new card for each user, and adding that card to the DOM.
 */
+/* <div class="card">
+<img src={image url of user} />
+<div class="card-info">
+  <h3 class="name">{users name}</h3>
+  <p class="username">{users user name}</p>
+  <p>Location: {users location}</p>
+  <p>Profile:
+    <a href={address to users github page}>{address to users github page}</a>
+  </p>
+  <p>Followers: {users followers count}</p>
+  <p>Following: {users following count}</p>
+  <p>Bio: {users bio}</p>
+</div>
+</div> */
 
+function  githubCard(img,name,userName,location,Profile,followers,following,bio){
+
+  const card = document.createElement('div')
+  const image = document.createElement('img')
+  const cardInfo = document.createElement('div')
+  const h3 = document.createElement('h3')
+  const par1 = document.createElement('p')
+  const par2 = document.createElement('p')
+  const par3 = document.createElement('p')
+  const a = document.createElement('a')
+  const par4 = document.createElement('p')
+  const par5 = document.createElement('p')
+  const par6 = document.createElement('p')
+
+  card.appendChild(image)
+  card.appendChild(cardInfo)
+
+  cardInfo.appendChild(h3)
+  cardInfo.appendChild(par1)
+  cardInfo.appendChild(par2)
+  cardInfo.appendChild(par3)
+  par3.appendChild(a)
+  cardInfo.appendChild(par4)
+  cardInfo.appendChild(par5)
+  cardInfo.appendChild(par6)
+
+  image.src = img;
+  h3.textContent = name;
+  par1.textContent = userName;
+  par2.textContent ="location: "+ location;
+  a.innerHTML = "profile: "+ Profile;
+  par4.textContent = "Followers: "+ followers;
+  par5.textContent = "following: "+ following;
+  par6.textContent = bio;
+
+  card.classList.add("card")
+  cardInfo.classList.add("card-info")
+  h3.classList.add('name')
+  par1.classList.add('username')
+
+
+  return card
+}
+const cards = document.querySelector('.cards')
+
+axios.get('https://api.github.com/users/BakarMokhtarAli')
+.then(response =>{
+  //!console.log(response.data.url)
+  const sawir = response.data.avatar_url
+  const magac = response.data.login
+  const userName = response.data.name
+  const location = response.data.location
+  const profile = response.data.url
+  const followers = response.data.followers
+  const following = response.data.following
+  const bio = response.data.bio
+  cards.appendChild(githubCard(sawir,magac,userName,location,profile,followers,following,bio))
+})
+.catch(error =>{
+  console.log(error)
+})
+
+axios.get('https://api.github.com/users/DuraanAli')
+.then(response =>{
+  //!console.log(response.data.url)
+  const sawir = response.data.avatar_url
+  const magac = response.data.login
+  const userName = response.data.name
+  const location = response.data.location
+  const profile = response.data.url
+  const followers = response.data.followers
+  const following = response.data.following
+  const bio = response.data.bio
+  cards.appendChild(githubCard(sawir,magac,userName,location,profile,followers,following,bio))
+})
+.catch(error =>{
+  console.log(error)
+})
+
+axios.get('https://api.github.com/users/mchamoudadev')
+.then(response =>{
+  //!console.log(response.data.url)
+  const sawir = response.data.avatar_url
+  const magac = response.data.login
+  const userName = response.data.name
+  const location = response.data.location
+  const profile = response.data.url
+  const followers = response.data.followers
+  const following = response.data.following
+  const bio = response.data.bio
+  cards.appendChild(githubCard(sawir,magac,userName,location,profile,followers,following,bio))
+})
+.catch(error =>{
+  console.log(error)
+})
+
+axios.get('https://api.github.com/users/abdirahmanahmed1')
+.then(response =>{
+  //!console.log(response.data.url)
+  const sawir = response.data.avatar_url
+  const magac = response.data.login
+  const userName = response.data.name
+  const location = response.data.location
+  const profile = response.data.url
+  const followers = response.data.followers
+  const following = response.data.following
+  const bio = response.data.bio
+  cards.appendChild(githubCard(sawir,magac,userName,location,profile,followers,following,bio))
+})
+.catch(error =>{
+  console.log(error)
+})
+
+axios.get('https://api.github.com/users/gabischool')
+.then(response =>{
+  //!console.log(response.data.url)
+  const sawir = response.data.avatar_url
+  const magac = response.data.login
+  const userName = response.data.name
+  const location = response.data.location
+  const profile = response.data.url
+  const followers = response.data.followers
+  const following = response.data.following
+  const bio = response.data.bio
+  cards.appendChild(githubCard(sawir,magac,userName,location,profile,followers,following,bio))
+})
+.catch(error =>{
+  console.log(error)
+})
 const followersArray = [];
 
